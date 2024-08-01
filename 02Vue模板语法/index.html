@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>插值语法</h1>
+        <h3>Hi, my name is {{name}}</h3>
+        <hr>
+
+        <h1>指令语法</h1>
+        <a v-bind:href="vueUrl">点击访问学习Vue的github仓库</a><br>
+        <a :href="vueUrl.toUpperCase()">再访问一次学习Vue的github仓库</a>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: "#root",
+        data: {
+            name: "D5error",
+            vueUrl: "https://github.com/D5error/vue_learning"
+        }
+    })
+</script>
+</html>
