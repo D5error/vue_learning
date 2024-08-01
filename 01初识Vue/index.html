@@ -9,11 +9,16 @@
 </head>
 <body>
     <div id="root">
-        <h1>Hello, Vue!</h1>
+        <h1>{{Date.now()}}: Hello, I'm {{creator}}, welcome!</h1>
     </div>
 
     <script>
-        const x = new Vue({})
-    </script>
+        new Vue({
+            el: '#root',
+            data: {
+                creator: "D5error"
+            }
+        })
+</script>
 </body>
 </html>
