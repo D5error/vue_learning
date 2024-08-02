@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>name: {{name}}</h1>
+        <h1>age: {{age}}</h1>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            name: "D5",
+            age: 20,
+        }
+    })
+    console.log("vm 代理了data");
+    console.log("vm.name: ", vm.name, "vm.age: ", vm.age);
+    console.log("vm._data.age <- 21, vm._data.name <- D6");
+    vm._data.age = 21;
+    vm._data.name = "D6";
+    console.log("vm.name: ", vm.name, "vm.age: ", vm.age);
+</script>
+</html>
