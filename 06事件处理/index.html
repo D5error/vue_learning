@@ -8,6 +8,8 @@
 </head>
 <body>
     <div id="root">
+        <button v-on:click="showInfo">点我提示信息</button>
+        <button @click="showInfo(1234, $event)">点我提示信息</button>
 
     </div>
 </body>
@@ -16,6 +18,13 @@
         el: "#root",
         data: {
             
+        },
+        methods: {
+            showInfo(num, event){
+                alert(num)
+                alert("Welcome!");
+                console.log(event)
+            }
         }
     })
 </script>
