@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        姓：<input type="text" v-model:="firstName">
+        <br>
+        <br>
+        名：<input type="text" v-model:="lastName">
+        <br>
+        <br>
+        姓名：{{fullName}}
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            firstName: "张",
+            lastName: "三",
+            fullName: "张@三"
+        },
+        watch: {
+            firstName: {
+                handler(newVal, oldVal){
+                    this.fullName = newVal + '@' + this.lastName;
+                }
+            },
+            lastName: {
+                handler(newVal, oldVal){
+                    this.fullName = this.firstName + '@' + newVal;
+                
+                }
+            }
+        }
+    })
+</script>
+</html>
