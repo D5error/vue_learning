@@ -8,23 +8,30 @@
 </head>
 <body>
     <div id="root">
-
+        <h1>今天天气很{{climate}}</h1><br>
+        <button v-on:click="switch">切换天气</button><br>
+        <button @click="isHot = !isHot">切换天气</button>
     </div>
 </body>
 <script>
     const vm = new Vue({
         el: "#root",
         data: {
-            
+            isHot: true,
         },
         methods: {
+            switch(){
+                this.isHot = !this.isHot;
+            }
             
         },
         computed: {
-            
-        },
-        watch: {
-            
+            climate(){
+                if(this.isHot)
+                    return "炎热"; 
+                else
+                    return "凉爽";
+            }
         }
     })
 </script>

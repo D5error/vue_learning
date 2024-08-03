@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>今天天气很{{climate}}</h1>
+        <br>
+        <br>
+        <button @click="isHot = !isHot">点我更换天气</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            isHot: true,
+        },
+        computed:{
+            climate(){
+                if(this.isHot){
+                    return "炎热";
+                }
+                else{
+                    return "凉爽";
+                }
+            }
+        },
+        watch: {
+            isHot: {
+                // isHot发生变化时调用handler()
+                handler(newValue, oldValue){
+                    console.log("isHot被更改了，新：", newValue, "旧：", oldValue);
+                },
+                // 初始化时选择是否调用handler()
+                // immediate: true
+            }
+        }
+    })
+</script>
+</html>
