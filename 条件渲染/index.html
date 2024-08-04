@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1 v-show="n >= 1">你好我是{{name}}</h1>
+        <h1 v-if="n >= 5">当前n大于等于5</h1>
+        <h1 v-else="n === 2">当前n小于5</h1>
+        <button @click="n++">当前n的值为{{n}}</button>
+
+        <br>
+        <br>
+
+        <template v-if="n === 2">
+            <h2>你好</h2>    
+            <h2>哈喽</h2>    
+            <h2>再见</h2>    
+        </template>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            name: 'D5',
+            n: 0,
+        },
+        methods: {
+            
+        },
+        computed: {
+            
+        },
+        watch: {
+            
+        }
+    })
+</script>
+</html>
