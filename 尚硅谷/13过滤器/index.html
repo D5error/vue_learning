@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/dayjs@1.11.12/dayjs.min.js "></script>
+</head>
+<body>
+    <div id="root">
+        <h2>时间戳：{{time}}</h2>
+        <h3>格式化-computed：{{computedTime}}</h3>
+        <h3>格式化-methods：{{methodTime()}}</h3>
+        <h3>格式化-过滤器：{{time | timeFormater}}</h3>
+        <h3>格式化-过滤器：{{time | timeFormater('YYYY')}}</h3>
+        <!-- <h3>格式化-过滤器：{{time | timeFormater("YYYY年MM月DD日")}}</h3> -->
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            time: 1722934073104,
+        },
+        computed: {
+            computedTime: {
+                get(){
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+                }
+            }
+        },
+        methods: {
+            methodTime(){
+                return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+            }
+        },
+        filters: {
+            timeFormater(val, str='YYYY-MM-DD HH:mm:ss'){
+                // console.log(str)
+                return dayjs(val).format(str)
+            }
+        }
+    })
+</script>
+</html>
