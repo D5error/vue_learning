@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <ul>
+            <li v-for="person in personList" :key="person.id">
+            <!-- <li v-for="(person, index) in personList" :key="person.id"> -->
+                {{person.name}}@{{person.age}}
+                <input type="text">
+            </li>
+        </ul>
+        <button @click.once="add">添加一个D5error</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            personList: [
+                {
+                    id: '001',
+                    name: 'D5',
+                    age: 20,
+                },
+                {
+                    id: '002',
+                    name: 'D6',
+                    age: 21,
+                },
+                {
+                    id: '003',
+                    name: 'D7',
+                    age: 22,
+                }
+            ]
+        },
+        methods: {
+            add(){
+                const p = {
+                    id: '004',
+                    name: 'D5error',
+                    age: 100
+                }
+                this.personList.unshift(p)
+            }
+        },
+        computed: {
+            
+        },
+        watch: {
+            
+        }
+    })
+</script>
+</html>

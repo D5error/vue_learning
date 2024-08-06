@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>学校信息</h1>
+        <h2>学校名称：{{school.name}}</h2>
+        <h2>学校地址：{{school.address}}</h2>
+        <h2 v-if="school.year">学校年份：{{school.year}}</h2>
+        <button @click="addYear">添加学校年份</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            school: {
+                name: "中山大学",
+                address: "广东",
+            }
+        },
+        methods: {
+            addYear(){
+                Vue.set(this.school, 'year', 1924)
+            }
+        },
+    })
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>人员列表</h2>
+        <br>
+        <input type="text" placeholder="请输入姓名" v-model="keyWord">
+        <ul>
+            <li v-for="p in filteredPer" :key="p.id">
+                {{p.name}} {{p.age}} {{p.gender}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            keyWord: '',
+            personList: [
+                {
+                    id: '001',
+                    name: '周冬雨',
+                    age: 20,
+                    gender: '女',
+                },
+                {
+                    id: '002',
+                    name: '马冬梅',
+                    age: 21,
+                    gender: '女'
+                },
+                {
+                    id: '003',
+                    name: '周杰伦',
+                    age: 22,
+                    gender: '男'
+                },
+                {
+                    id: '004',
+                    name: '张杰',
+                    age: 23,
+                    gender: '男'
+                }
+            ],
+            filteredPer: []
+        },
+        watch: {
+            keyWord: {
+                immediate: true,
+                handler(newVal){
+                    this.filteredPer = this.personList.filter((p)=>{
+                        return p.name.indexOf(newVal) != -1
+                    })
+                }
+            }
+        }
+    })
+</script>
+</html>
