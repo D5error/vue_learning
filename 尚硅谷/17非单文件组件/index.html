@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        {{nameddd}}
+        <hr>
+        <school></school>
+        <hr>
+        <student></student>
+        <hr>
+        <hello></hello>
+    </div>
+</body>
+<script>
+    // 创建school组件
+    const school = Vue.extend({
+        template: `
+            <div>
+                <h2>学校名称：{{name}}</h2>
+                <h2>学校地址：{{address}}</h2>
+            </div>`,
+       data(){
+        return {
+            name: 'SYSU',
+            address: '广东省深圳市光明区'
+        }
+       } 
+    })
+    
+     // 创建student组件
+    const student = Vue.extend({
+        template: `
+            <div>
+                <h2>学生姓名：{{name}}</h2>
+                <h2>学生年龄：{{age}}</h2>
+            </div>
+        `,
+        data(){
+            return {
+            name: 'd5error',
+            age: 20,
+            }
+        }
+    })
+
+    const hello = Vue.extend({
+        template: `
+        <div>
+            <h2>你好</h2>
+        </div>`,
+    })
+
+    // 全局
+    Vue.component('hello', hello)
+
+
+    // 局部
+    new Vue({
+        data: {
+            name: "d544444444444444",
+        },
+        el: '#root',
+        components: {
+            school: school,
+            student: student,
+        }
+    })
+</script>
+</html>
