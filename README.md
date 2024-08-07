@@ -1,5 +1,5 @@
 # 描述
-对于Vue的初次尝试，仅为简单的照猫画虎。
+简单了解Vue。
 
 # 参考资料
 1. 【尚硅谷Vue2.0+Vue3.0全套教程丨vuejs从入门到精通】https://www.bilibili.com/video/BV1Zy4y1K7SH?p=7&vd_source=5dfa71907205049cdae354e07698ac6a
