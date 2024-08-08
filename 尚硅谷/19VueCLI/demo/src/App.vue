@@ -6,8 +6,8 @@
 </template>
 
 <script>
-    import School from './SchoolComponent.vue'
-    import Student from './StudentComponent.vue'
+    import School from './components/SchoolComponent.vue'
+    import Student from './components/StudentComponent.vue'
 
     export default {
         name: 'App',

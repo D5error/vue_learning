@@ -8,7 +8,7 @@
 
 <script>
     export default {
-        name: 'Student',
+        name: 'StudentComponent',
         data(){
             return {
                 name: 'D5error',
